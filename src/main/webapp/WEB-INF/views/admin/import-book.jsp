@@ -4,32 +4,27 @@
 <html>
 <head>
     <jwr:style src="/bundles/defaultCSS.css" />
-    <title>Main</title>
+    <title>Import Book</title>
 </head>
 <body class="no-skin">
-<jsp:include page="base/before.jsp" />
+<jsp:include page="../base/before.jsp" />
 <div class="main-container" id="main-container">
     <script type="text/javascript">
         try{ace.settings.check('main-container' , 'fixed')}catch(e){}
     </script>
-    <jsp:include page="base/menu.jsp">
-        <jsp:param name="activeMenu" value="index"/>
+    <jsp:include page="../base/menu.jsp">
+        <jsp:param name="activeMenu" value="import-book"/>
     </jsp:include>
     <div class="main-content">
         <div class="main-content-inner">
             <div class="page-content">
                 <div class="row">
-                    <c:forEach var="item" items="${books}">
-                        <div class="book-preview">
-                            <div class="book-preview-image"><img src="/images/${item.image}" onerror="this.src='/resources/img/no_availabale.png'"></div>
-                            <div class="book-preview-title">${item.name}</div>
-                        </div>
-                    </c:forEach>
+
                 </div>
             </div>
         </div>
     </div>
 </div>
-<jsp:include page="base/after.jsp" />
+<jsp:include page="../base/after.jsp" />
 </body>
 </html>
