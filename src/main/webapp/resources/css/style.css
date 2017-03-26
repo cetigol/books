@@ -1,0 +1,14 @@
+.book-preview-image img{
+    height: 245px;
+    width: 185px;
+}
+
+.book-preview{
+    width: 14%;
+    margin: 10px;
+}
+
+.book-preview-title{
+    text-align: center;
+    font-size: 15px;
+}

@@ -15,6 +15,8 @@
     <context:annotation-config/>
     <context:component-scan base-package="com.site.aggregator"/>
 
+    <context:property-placeholder location="classpath:app-config.properties" system-properties-mode="OVERRIDE" ignore-unresolvable="true"/>
+
     <import resource="/spring/spring-mvc-context.xml"/>
     <import resource="/spring/spring-datasource.xml"/>
 </beans>

@@ -1,41 +1,32 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://jawr.net/tags" prefix="jwr" %>
 <html>
 <head>
-    <!-- start: CSS -->
-    <link id="bootstrap-style" href="resources/css/bootstrap/bootstrap.min.css" rel="stylesheet">
-    <link href="resources/css/bootstrap/bootstrap-responsive.min.css" rel="stylesheet">
-    <link id="base-style" href="resources/css/style/style.css" rel="stylesheet">
-    <link id="base-style-responsive" href="resources/css/style/style-responsive.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,cyrillic-ext,latin-ext' rel='stylesheet' type='text/css'>
-    <!-- end: CSS -->
+    <jwr:style src="/bundles/defaultCSS.css" />
 </head>
-<body>
+<body class="no-skin">
 <jsp:include page="base/before.jsp" />
-    <div class="container-fluid-full">
-        <jsp:include page="base/menu.jsp" />
-        <div class="row-fluid">
-            <!-- start: Content -->
-            <div id="content" class="span10">
-                <div class="row-fluid">
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+    </script>
+    <jsp:include page="base/menu.jsp" />
+    <div class="main-content">
+        <div class="main-content-inner">
+            <div class="page-content">
+                <div class="row">
                     <c:forEach var="item" items="${books}">
-                        <div class="span2 book-display" ontablet="span4" ondesktop="span2">
-                            <a href="<c:url value="/book/${item.id}"/>" title="${item.name}">
-                                <img src="${item.image}" onerror="this.src='resources/img/fallback.png'">
-                            </a>
-                            <br/>
-                            <a href="<c:url value="/book/${item.id}"/>">
-                                ${item.name}
-                            </a>
-                            <br/>
-                            ${item.author}
+                        <div class="book-preview">
+                            <div class="book-preview-image"><img src="/images/${item.image}" onerror="this.src='/resources/img/no_availabale.png'"></div>
+                            <div class="book-preview-title">${item.name}</div>
                         </div>
                     </c:forEach>
                 </div>
             </div>
-            <!-- end: Content -->
         </div>
     </div>
+</div>
 <jsp:include page="base/after.jsp" />
 </body>
 </html>
